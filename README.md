@@ -25,6 +25,7 @@ Phase 2: Remote Management (SSH) – Once the network was live, I hardened the s
 ### 2. I updated the local package repository and installed the required services on the Server VM:
 ```bash
 sudo apt update && sudo apt install isc-dhcp-server openssh-server -y
+```
 
 ### 3. Server Network Setup
 I checked the network connection information to get the interface name for both the server and the client.
