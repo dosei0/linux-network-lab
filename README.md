@@ -12,7 +12,7 @@ Phase 2: Remote Management (SSH) – Once the network was live, I hardened the s
 *   **Network Config:** Static IP Addressing, Subnetting
 *   **Virtualization:** Parallels 
 
-## 📂 Repository Structure
+## 📂 Configuration File folder containing
 *   `dhcpd.conf`: Configuration for the DHCP service and IP pools.
 *   `sshd_config`: Security settings for remote SSH access.
 *   `interfaces.conf`: Network interface configuration showing the Server's static IP.
