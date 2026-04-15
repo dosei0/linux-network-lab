@@ -97,6 +97,30 @@ Challenges I encountered and their fixes:
 ### 3. DHCP process crashing on client
 **Issue:** The client DHCP kept crashing.
 **Fix:** Use the Network Manager interface to refresh ip addresses instead of the dhclient process.
+## 🏗 Architecture
+
+This project follows a **client-server architecture** designed for secure remote communication and automated network configuration.
+
+### 🗺 System Diagram
+![DHCP Architecture](./Screenshots/dhcp.png)
+![SSH Architecture](./Screenshots/ssh.png)
+
+### 🧩 Core Components
+
+#### 1. SSH Server/Client Layer
+- **Transport Layer**: Establishes a secure TCP/IP connection on Port 22.
+- **Authentication**: Uses asymmetric RSA/Ed25519 key pairs for passwordless login.
+- **Multiplexing**: Supports concurrent shell sessions and secure file transfers (SFTP).
+
+#### 2. DHCP Management Layer
+- **Lease Engine**: Handles the DORA (Discover, Offer, Request, Acknowledge) cycle.
+- **Persistence**: Maintains an IP-to-MAC binding table in a local database/JSON store.
+
+### 🔄 Data Flow
+1. The **Client** broadcasts a DHCP Discover packet to join the network.
+2. The **Server** assigns an IP and updates the internal routing table.
+3. Once the network is established, the **Client** initiates an SSH handshake to the **Server** for remote administration.
+4. All administrative traffic is then funneled through the encrypted SSH tunnel.
 
 ---
 *This lab was completed as a demonstration of Linux system administration and networking fundamentals.*
