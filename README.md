@@ -20,7 +20,7 @@ Phase 2: Remote Management (SSH) – Once the network was live, I hardened the s
 
 ## 🚀 Implementation Details
 
-### 1. Went to the Virtual Machine settingd for both linux VMs in Parallels and set the networking settings to host-only Network
+### 1. Went to the Virtual Machine settings for both linux VMs in Parallels and set the networking settings to host-only Network
 
 ### 2. I updated the local package repository and installed the required services on the Server VM:
 ```bash
@@ -31,12 +31,14 @@ sudo apt update && sudo apt install isc-dhcp-server openssh-server -y
 I checked the network connection information to get the interface name for both the server and the client.
 ```bash
 ip addr
+```
 Then to ensure the DHCP server remains reachable, I assigned it a **Static IP**. 
 *   **Configuration File:** `interfaces.conf`
 *   **Settings:** IP `10.37.129.8` | Mask `255.255.255.0`
 Then restarted the networking service so the changes to the interface file took effect.
 ```bash
 sudo system restart networking
+```
 
 ### 4. DHCP Configuration
 I configured the `isc-dhcp-server` to manage a specific range of IPs, ensuring it does not conflict with the server's static address.
@@ -46,11 +48,13 @@ I configured the `isc-dhcp-server` to manage a specific range of IPs, ensuring i
 Then I started the isc-dhcp-server on the server
 ```bash
 sudo system isc-dhcp-server start
+```
 
 Then went on the client and restarted the networking device so it connected to the server and checked the ip address to confirm
 ```bash
 nmcli con down [id] && nmcli con up [id]
 ip addr
+```
 
 ### 5. SSH Hardening
 Remote access was enabled via `openssh-server` making use of Ed25519 keys by configuring the sshs_config file. 
@@ -58,12 +62,14 @@ Remote access was enabled via `openssh-server` making use of Ed25519 keys by con
 I started openssh-server on the server
 ```bash
 sudo service ssh start
+```
 
 Then went on the client and generated the public and private keys for the secure connection, sent the public key to the server and then connected to the ssh
 ```bash
 ssh-keygen -t ed25519
 ssh-copy-id -i ~/.ssh/id_ed25519.pub user@10.37.129.8
 ssh user@10.37.129.8
+```
 
 ## 📊 Verification & Screenshots
 Below is proof of the functional network:
