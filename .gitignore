@@ -6,11 +6,8 @@
 !README.md
 !LICENSE
 
-# 3. Allow Config Files
-!dhcpd.conf
-!sshd_config
-!interfaces.conf
+# 3. Allow Folders
+!Screenshots/
+!Configuration Files/
+!interfaces
 
-# 4. Allow Proof (Screenshots)
-!*.png
-!*.jpg
