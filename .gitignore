@@ -1,0 +1,16 @@
+# 1. Ignore everything
+*
+
+# 2. Allow the essentials
+!.gitignore
+!README.md
+!LICENSE
+
+# 3. Allow Config Files
+!dhcpd.conf
+!sshd_config
+!interfaces.conf
+
+# 4. Allow Proof (Screenshots)
+!*.png
+!*.jpg
