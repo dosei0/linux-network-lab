@@ -58,7 +58,7 @@ ip addr
 
 ### 5. SSH Hardening
 Remote access was enabled via `openssh-server` making use of Ed25519 keys by configuring the sshs_config file. 
-*   **Configuration File:** `interfaces.conf`
+*   **Configuration File:** `interfaces`
 I started openssh-server on the server
 ```bash
 sudo service ssh start
