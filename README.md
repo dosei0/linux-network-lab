@@ -75,11 +75,11 @@ ssh user@10.37.129.8
 Below is proof of the functional network:
 
 ### Client side DHCP lease and SSH connection
-![Client receiving IP](./screenshots/client-ip-check.png)
+![Client Terminal](./Screenshots/client.png)
 *Screenshot showing the client VM refreshing its ip and successfully binding to an ip from the specific server address with the ip details then displaced and the ssh remote login to server being completed.*
 
 ### Server side DHCP lease and SSH connection
-![SSH Terminal](./screenshots/ssh-connection.png)
+![Server Terminal](./Screenshots/server.png)
 *Screenshot showing the server VM completing the DORA process for leasing an ip to the client and a successful remote login session being completed.*
 
 ---
