@@ -82,6 +82,22 @@ Below is proof of the functional network:
 ![Server Terminal](./Screenshots/server.png)
 *Screenshot showing the server VM completing the DORA process for leasing an ip to the client and a successful remote login session being completed.*
 
+## 🛠 Challenges
+
+Challenges I encountered and their fixes:
+
+### 1. IP address conflict
+**Issue:** Client could not keep a consistent connection to server.
+**Fix:** Check ip address that Parallels' own DHCP uses and choose a different one
+
+### 2. Password for SSH login not being accepted 
+**Issue:** `Password incorrect: Please try again`
+**Fix:** Edit the 'sshd_config' file by setting ChallengeResponseAuthentication to Yes from no.
+
+### 3. DHCP process crashing on client
+**Issue:** The client DHCP kept crashing.
+**Fix:** Use the Network Manager interface to refresh ip addresses instead of the dhclient process.
+
 ---
 *This lab was completed as a demonstration of Linux system administration and networking fundamentals.*
 
