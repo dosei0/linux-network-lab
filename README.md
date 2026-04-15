@@ -33,7 +33,7 @@ I checked the network connection information to get the interface name for both 
 ip addr
 ```
 Then to ensure the DHCP server remains reachable, I assigned it a **Static IP**. 
-*   **Configuration File:** `interfaces.conf`
+*   **Configuration File:** `interfaces`
 *   **Settings:** IP `10.37.129.8` | Mask `255.255.255.0`
 Then restarted the networking service so the changes to the interface file took effect.
 ```bash
